@@ -1,6 +1,7 @@
 <template>
   <v-app dark  class="cyan darken-2">
     <m-navbar/>
+    <m-sidebar/>
     <m-toolbar/>
     <v-content fluid>
       <v-container fluid fill-height>
@@ -19,12 +20,13 @@
 <script>
 import Navbar from '@/components/Navbar'
 import Toolbar from '@/components/Toolbar'
-
+import Sidebar from '@/components/Sidebar'
 export default {
   name: 'app',
   components: {
     'm-navbar': Navbar,
-    'm-toolbar': Toolbar
+    'm-toolbar': Toolbar,
+    'm-sidebar': Sidebar
   }
 }
 </script>

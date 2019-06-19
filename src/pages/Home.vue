@@ -1,12 +1,16 @@
 <template>
   <div class="home">
-		home
+		<twit/>
 	</div>
 </template>
 
 <script>
+import Twit from '@/components/Twit'
 export default {
-	name: 'home'
+	name: 'home',
+	components: {
+		Twit
+	}
 }
 </script>
 

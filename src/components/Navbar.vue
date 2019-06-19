@@ -10,15 +10,14 @@
     <v-toolbar flat class="transparent pa-3">
         <v-list class="pa-0">
           <v-list-tile avatar>
-            <v-list-tile-avatar>
-              <img src="https://randomuser.me/api/portraits/men/85.jpg">
+            <v-list-tile-avatar size='60'>
+              <img :src='avatar'>
             </v-list-tile-avatar>
 
-            <v-list-tile-content>
+            <v-list-tile-content class='ma-4'>
               <v-list-tile-title>John Leider</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-        </v-list>
         <v-list-tile-action class='hidden-lg-and-up'>
             <v-btn
               icon
@@ -27,13 +26,14 @@
               <v-icon>chevron_left</v-icon>
             </v-btn>
           </v-list-tile-action>
+        </v-list>
       </v-toolbar>
     <v-divider></v-divider>
     <v-list dense>
       <v-list-tile
         v-for="item in items"
         :key="item.title"
-        @click=""
+        @click="$router.push(item.route)"
       >
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -52,11 +52,30 @@
 export default {
   name: 'm-navbar',
   data: () => ({
+    avatar: "https://randomuser.me/api/portraits/men/85.jpg",
     title: 'Nikita Efimenko',
     items: [
-      { title: 'Home', icon: 'dashboard' },
-      { title: 'About', icon: 'question_answer' }
-    ]
+      { 
+        title: 'Home',
+        icon: 'person',
+        route: { name: 'home' }
+      },
+      { 
+        title: 'Dashboard',
+        icon: 'dashboard',
+        route: { name: 'dashboard' }
+      },
+      { 
+        title: 'Messages',
+        icon: 'message',
+        route: { name: 'twits' }
+      },
+      { 
+        title: 'About',
+        icon: 'question_answer',
+        route: { name: 'about' }
+      }
+    ],
   })
 }
 </script>
